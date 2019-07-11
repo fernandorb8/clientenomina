@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="91a160c6-dd3a-4a9f-ae9a-505b413f05d0" activeEnvironment="Default" name="ClientesNominaSOAP" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="2f27397a-c185-4a29-a2d1-30e64938b51f" wsaVersion="NONE" name="data_msSOAP_HTTP_Binding" type="wsdl" bindingName="{http://tempuri.org/data_ms}data_msSOAP_HTTP_Binding" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/FernandoReyesBejaran/Downloads/data_msService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\FernandoReyesBejaran\Downloads\data_msService.wsdl"><con:part><con:url>file:\C:\Users\FernandoReyesBejaran\Downloads\data_msService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="data_ms" targetNamespace="http://tempuri.org/data_ms" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://tempuri.org/data_ms" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempuri.org/data_ms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/data_ms" xmlns:mrm="http://tempuri.org/data_ms">
+      <xsd:element name="id_empleado" type="xsd:int"/>
+      <xsd:element name="nombre" type="xsd:string"/>
+      <xsd:element name="salario" type="xsd:string"/>
+      <xsd:complexType name="requestData">
+        <xsd:sequence>
+          <xsd:element ref="id_empleado"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="responseData">
+        <xsd:sequence>
+          <xsd:element ref="nombre"/>
+          <xsd:element ref="salario"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="requestData" type="requestData"/>
+      <xsd:element name="responseData" type="responseData"/>
+      <xsd:element name="fcode" type="xsd:int"/>
+      <xsd:element name="fmessage" type="xsd:string"/>
+      <xsd:complexType name="errorMessage">
+        <xsd:sequence>
+          <xsd:element ref="fmessage"/>
+          <xsd:element ref="fcode"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="errorMessage" type="errorMessage"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="operacionDatos_in">
+    <wsdl:part element="requestData" name="requestData"/>
+  </wsdl:message>
+  <wsdl:message name="operacionDatos_out">
+    <wsdl:part element="responseData" name="responseData"/>
+  </wsdl:message>
+  <wsdl:message name="operacionDatos_fault1">
+    <wsdl:part element="errorMessage" name="errorMessage"/>
+  </wsdl:message>
+  <wsdl:portType name="data_msPortType">
+    <wsdl:operation name="operacionDatos">
+      <wsdl:input message="operacionDatos_in" name="operacionDatos_Input"/>
+      <wsdl:output message="operacionDatos_out" name="operacionDatos_Output"/>
+      <wsdl:fault message="operacionDatos_fault1" name="operacionDatos_Fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="data_msSOAP_HTTP_Binding" type="data_msPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="operacionDatos">
+      <soap:operation soapAction="DevolverDatos"/>
+      <wsdl:input name="operacionDatos_Input">
+        <soap:body parts="requestData" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="operacionDatos_Output">
+        <soap:body parts="responseData" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="operacionDatos_Fault">
+        <soap:fault name="operacionDatos_Fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="data_msSOAP_HTTP_Service">
+    <wsdl:port binding="data_msSOAP_HTTP_Binding" name="data_msSOAP_HTTP_Port">
+      <soap:address location="http://localhost:7800/data_msSOAP_HTTP_Service"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://DESKTOP-5RIC88M:7800/data_msSOAP_HTTP_Service</con:endpoint><con:endpoint>http://localhost:7800/data_msSOAP_HTTP_Service</con:endpoint></con:endpoints><con:operation id="23a4a9a4-e35a-4389-8734-1dd751ea4c58" isOneWay="false" action="DevolverDatos" name="operacionDatos" bindingOperationName="operacionDatos" type="Request-Response" outputName="operacionDatos_Output" inputName="operacionDatos_Input" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5f42d475-a5c0-4639-b3db-23ecc25b80ae" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7800/data_msSOAP_HTTP_Service</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:data="http://tempuri.org/data_ms">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <data:requestData>\r
+         <data:id_empleado>?</data:id_empleado>\r
+      </data:requestData>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="DevolverDatos"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="99993edc-36af-42bd-ba96-b5104fb5e1ac" port="7800" path="/data_msSOAP_HTTP_Service" host="DESKTOP-5RIC88M" name="data_msSOAP_HTTP_Binding MockService" bindToHostOnly="false" docroot=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="operacionDatos" id="51ddcd20-6c65-44a2-bf2d-0a3d82f5f1eb" interface="data_msSOAP_HTTP_Binding" operation="operacionDatos"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="e6f0e8e5-58bd-4141-a9a3-01516c171168" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:data="http://tempuri.org/data_ms">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <data:responseData>
+         <data:nombre>David Ramirez</data:nombre>
+         <data:salario>10 000 000</data:salario>
+      </data:responseData>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="DevolverDatos"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
