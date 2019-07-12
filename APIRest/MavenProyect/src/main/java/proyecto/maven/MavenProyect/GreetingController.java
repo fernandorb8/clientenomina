@@ -80,8 +80,8 @@ public class GreetingController {
 			in.close();
 			System.out.println("response:" + response.toString());
 
-			return new Empleados(counter.incrementAndGet(), innerList.item(3).getTextContent(),
-					innerList.item(1).getTextContent());
+			return new Empleados(counter.incrementAndGet(), innerList.item(1).getFirstChild().getNodeValue(),
+					innerList.item(0).getFirstChild().getNodeValue());
 
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block

@@ -1,0 +1,23 @@
+
+
+Importing file: C:\Users\DavidAndresRamirezVa\Desktop\wsdl\data_msService.wsdl
+
+Copying source WSDL data_msService.wsdl to data_msService.wsdl.
+The WSDL import will proceed with bindings data_msSOAP_HTTP_Binding.
+Creating wsdl schema document for file:///C:/Users/DavidAndresRamirezVa/Desktop/wsdl/data_msService.wsdl.
+Parsing wsdl binding {http://tempuri.org/data_ms}data_msSOAP_HTTP_Binding.
+Parsing wsdl binding input operacionDatos.
+Parsing wsdl binding output operacionDatos.
+Parsing wsdl binding fault operacionDatos_Fault.
+Processing doc style for operation operacionDatos.
+Populating WSDL schema data_msService.xsd.
+Creating file data_msService.xsd in the workspace.
+Creating file data_msService_InlineSchema1.xsd in the workspace.
+
+Elapsed time processing this message definition file: 1.761 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tempuri.org/data_ms" xmlns="http://tempuri.org/data_ms" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:mrm="http://tempuri.org/data_ms" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempuri.org/data_ms" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+                                                                                  <xsd:element name="id_empleado" type="xsd:int"/>
+            <xsd:element name="nombre" type="xsd:string"/>
+            <xsd:element name="salario" type="xsd:string"/>
+            <xsd:complexType name="requestData">
+        <xsd:sequence>
+          <xsd:element ref="mrm:id_empleado"/>
+        </xsd:sequence>
+      </xsd:complexType>
+            <xsd:complexType name="responseData">
+        <xsd:sequence>
+          <xsd:element ref="mrm:nombre"/>
+          <xsd:element ref="mrm:salario"/>
+        </xsd:sequence>
+      </xsd:complexType>
+            <xsd:element ibmSchExtn:docRoot="true" name="requestData" type="mrm:requestData"/>
+            <xsd:element ibmSchExtn:docRoot="true" name="responseData" type="mrm:responseData"/>
+            <xsd:element name="fcode" type="xsd:int"/>
+            <xsd:element name="fmessage" type="xsd:string"/>
+            <xsd:complexType name="errorMessage">
+        <xsd:sequence>
+          <xsd:element ref="mrm:fmessage"/>
+          <xsd:element ref="mrm:fcode"/>
+        </xsd:sequence>
+      </xsd:complexType>
+            <xsd:element ibmSchExtn:docRoot="true" name="errorMessage" type="mrm:errorMessage"/>
+        </xsd:schema>
